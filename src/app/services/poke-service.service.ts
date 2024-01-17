@@ -22,7 +22,7 @@ export class PokeServiceService {
   }
 
   // Get an individual pokemon given its id or name
-  getByID(identifier: string){
+  getByIdentifier(identifier: string){
     return this.http.get<Pokemon>(`${environment.apiUrl}/Pokemon/${identifier}`);
   }
 }
