@@ -13,9 +13,10 @@ export class PokeServiceService {
     private http: HttpClient
   ) { }
 
-  getMany(pageSize?: number) {
+  getMany() {
     let params: HttpParams = new HttpParams();
-    if (pageSize) params = params.append("pageSize", pageSize)
+    // TODO: Get it working (likely with search bar logic) to not have to load every single pokemon, which would take a long time
+    params = params.append("pageSize", 721);
     return this.http.get<PokemonList>(`${environment.apiUrl}/Pokemon`,{params});
   }
 
