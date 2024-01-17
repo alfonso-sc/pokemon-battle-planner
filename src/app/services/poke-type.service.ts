@@ -23,6 +23,6 @@ export class PokeTypeService {
     let params: HttpParams = new HttpParams();
     if (att) params = params.append("attackerType", att);
     if (def) params = params.append("defenderType", def);
-    return this.http.get<Efficacy>(`${environment.apiUrl}/Types/CombatEfficacy`,{params});
+    return this.http.get<Efficacy[]>(`${environment.apiUrl}/Types/CombatEfficacy`,{params});
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PokemonList } from '../models/poke-list';
-import { Pokemon } from '../models/poke';
+import { PokemonDetailed } from '../models/poke-detail';
 import { environment } from '../environment/environment';
 
 @Injectable({
@@ -23,6 +23,6 @@ export class PokeServiceService {
 
   // Get an individual pokemon given its id or name
   getByIdentifier(identifier: string){
-    return this.http.get<Pokemon>(`${environment.apiUrl}/Pokemon/${identifier}`);
+    return this.http.get<PokemonDetailed>(`${environment.apiUrl}/Pokemon/${identifier}`);
   }
 }
