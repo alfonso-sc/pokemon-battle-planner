@@ -19,7 +19,7 @@ export class PokeTypeService {
   }
 
   // Get efficacy of attack given attacker and defender as parameters
-  getEff(att?: string, def?: string) {
+  getEfficacy(att?: string, def?: string) {
     let params: HttpParams = new HttpParams();
     if (att) params = params.append("attackerType", att);
     if (def) params = params.append("defenderType", def);
