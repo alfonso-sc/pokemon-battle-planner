@@ -1,5 +1,6 @@
 import { Ability } from "./ability";
 import { Move } from "./move";
+import { PokemonImages } from "./poke-images";
 import { Type } from "./type";
 
 export interface PokemonDetailed {
@@ -19,5 +20,6 @@ export interface PokemonDetailed {
     moves: Move[],
     types: Type[],
     generations: string[],
-    versions: string[]
+    versions: string[],
+    images: PokemonImages
 }
