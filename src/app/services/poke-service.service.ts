@@ -12,7 +12,8 @@ export class PokeServiceService {
   constructor(
     private http: HttpClient
   ) { }
-
+  
+  // Gets all pokemon
   getMany() {
     let params: HttpParams = new HttpParams();
     // TODO: Get it working (likely with search bar logic) to not have to load every single pokemon, which would take a long time
@@ -20,6 +21,7 @@ export class PokeServiceService {
     return this.http.get<PokemonList>(`${environment.apiUrl}/Pokemon`,{params});
   }
 
+  // Get an individual pokemon given its id or name
   getMon(identifier: string){
     return this.http.get<Pokemon>(`${environment.apiUrl}/Pokemon/${identifier}`);
   }
