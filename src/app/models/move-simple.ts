@@ -1,4 +1,4 @@
-export interface Move {
+export interface MoveSimple {
     id: number,
     moveName: string,
     power: number,
