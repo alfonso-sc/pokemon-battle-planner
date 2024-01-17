@@ -2,7 +2,7 @@ import { Ability } from "./ability";
 import { Move } from "./move";
 import { Type } from "./type";
 
-export interface Pokemon {
+export interface PokemonDetailed {
     id: number,
     pokemonName: string,
     baseExperience: number,
