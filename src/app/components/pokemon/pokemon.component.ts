@@ -10,10 +10,14 @@ import { PokeServiceService } from '../../services/poke-service.service';
 export class PokemonComponent {
   @Input({required: true}) 
   pokemon!: PokemonDetailed; // Define the input property for Pokemon data
+  
+  level: number;
 
   constructor(
     private pokeService: PokeServiceService
-  ) {}
+  ) {
+    this.level = 1;
+  }
 
   addMove() {
     // Implement the logic to add moves

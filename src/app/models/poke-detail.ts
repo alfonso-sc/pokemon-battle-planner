@@ -1,5 +1,5 @@
 import { Ability } from "./ability";
-import { MoveSimple } from "./move-simple";
+import { MoveDetail } from "./move-detail";
 import { PokemonImages } from "./poke-images";
 import { Type } from "./type";
 
@@ -17,7 +17,7 @@ export interface PokemonDetailed {
     evolvesInto: string,
     evolutionTrigger: string,
     abilities: Ability[]
-    moves: MoveSimple[],
+    moves: MoveDetail[],
     types: Type[],
     generations: string[],
     versions: string[],
