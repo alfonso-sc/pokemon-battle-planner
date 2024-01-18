@@ -19,6 +19,10 @@ export class PokemonComponent {
     this.level = 1;
   }
 
+  ngOnInit() {
+    this.pokemon.moves= [];
+  }
+
   addMove() {
     // Implement the logic to add moves
     console.log('Move added!');

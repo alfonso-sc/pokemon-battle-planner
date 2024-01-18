@@ -3,11 +3,10 @@
     <img mat-card-avatar src="{{pokemon.images['icons'][0]}}"/>
     <mat-card-title>{{pokemon.pokemonName | uppercase}}</mat-card-title>
     <mat-card-subtitle>{{pokemon.genus}} Pokemon</mat-card-subtitle>
-    <!-- <mat-form-field class="example-full-width">
-      <mat-label>Level</mat-label>
-      <span matTextPrefix>LVL &nbsp;</span>
-      <input [(ngModel)]="level">
-    </mat-form-field> -->
+    <mat-form-field class="level">
+      <mat-label>LVL</mat-label>
+      <input matInput [(ngModel)]="level">
+    </mat-form-field>
   </mat-card-header>
 
   <mat-card-actions>
