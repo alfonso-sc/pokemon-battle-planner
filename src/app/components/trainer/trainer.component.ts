@@ -15,8 +15,14 @@ export class TrainerComponent {
 
   constructor(private pokeService: PokeServiceService) { }
 
+  ngOnInit() {
+    this.getPokemon();
+  }
+
   getPokemon() {
+    this.html_log("Getting Pokemon...")
     this.pokemonResponse$ = this.pokeService.getMany()
+    this.html_log("Pokemon Gotten!")
   }
 
   // use to console.log from html for debugging, etc.

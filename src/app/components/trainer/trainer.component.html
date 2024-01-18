@@ -3,13 +3,10 @@
   <div class="label-container">
     <label>Add a Pokemon</label>
   </div>
-  <mat-form-field>
+  <mat-form-field *ngIf="(pokemonResponse$ | async) as pokemonResponse">
     <mat-label>Pokemon</mat-label>
     <select matNativeControl required>
-      <option value="poke 1">poke 1</option>
-      <option value="poke 2">poke 2</option>
-      <option value="poke 3">poke 3</option>
-      <option value="poke 4">poke 4</option>
+      <option *ngFor="let pokemon of pokemonResponse.data" value="pokemon">{{pokemon.pokemonName}}</option>
     </select>
   </mat-form-field>
 </div>
