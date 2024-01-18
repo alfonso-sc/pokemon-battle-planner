@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 
 import { PokemonList } from '../../models/poke-list';
 import { PokeServiceService } from '../../services/poke-service.service';
+import { PokemonDetailed } from '../../models/poke-detail';
+import { PokemonSimple } from '../../models/poke-simple';
 
 @Component({
   selector: 'app-trainer',
@@ -10,24 +12,40 @@ import { PokeServiceService } from '../../services/poke-service.service';
   styleUrl: './trainer.component.scss'
 })
 export class TrainerComponent {
-
   pokemonResponse$!: Observable<PokemonList>;
+  trainersPokemon!: PokemonDetailed[];
+  selectedPokemon!: PokemonSimple;
 
-  constructor(private pokeService: PokeServiceService) { }
+  constructor(
+    private pokeService: PokeServiceService
+    ) { 
+      this.trainersPokemon = [];
+    }
 
   ngOnInit() {
     this.getPokemon();
   }
 
   getPokemon() {
-    this.html_log("Getting Pokemon...")
+    console.log("Getting Pokemon...")
     this.pokemonResponse$ = this.pokeService.getMany()
-    this.html_log("Pokemon Gotten!")
+    console.log("Pokemon Gotten!")
   }
 
   // use to console.log from html for debugging, etc.
   html_log(val: any): void {
-    console.log(val);
+    console.log(JSON.stringify(val));
+  }
+
+  addPokemon() {
+    console.log(`Adding ` + this.selectedPokemon.pokemonName);
+    const newPokemon = this.pokeService.getByIdentifier(this.selectedPokemon.pokemonName);
+    newPokemon.subscribe(
+      np => {
+        return this.trainersPokemon.push(np);
+      }
+    )
+    console.log(this.selectedPokemon.pokemonName + ` added!`);
   }
 }
 

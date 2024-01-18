@@ -3,10 +3,15 @@
   <div class="label-container">
     <label>Add a Pokemon</label>
   </div>
-  <mat-form-field *ngIf="(pokemonResponse$ | async) as pokemonResponse">
-    <mat-label>Pokemon</mat-label>
-    <select matNativeControl required>
-      <option *ngFor="let pokemon of pokemonResponse.data" value="pokemon">{{pokemon.pokemonName}}</option>
-    </select>
-  </mat-form-field>
+  <div *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="trainersPokemon.length >= 6">
+    <mat-form-field>
+      <mat-label>Pokemon</mat-label>
+      <mat-select matNativeControl required [(ngModel)]="selectedPokemon">
+        <mat-option *ngFor="let pokemon of pokemonResponse.data" [value]="pokemon">{{pokemon.pokemonName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button class="custom-button" (click)="addPokemon(); html_log(trainersPokemon.length)">Add Pokemon</button>
+    </div>
+  </div>
 </div>
