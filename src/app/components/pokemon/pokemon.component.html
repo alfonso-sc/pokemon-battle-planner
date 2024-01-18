@@ -9,21 +9,23 @@
     </mat-form-field>
   </mat-card-header>
 
-  <div class="move-card-container">
-    <div *ngFor="let moves of pokemon.selectedMoves" class="move-card">
-      <app-move [move]="moves"></app-move>
+  <div [hidden]="opponent === true">
+    <div class="move-card-container">
+      <div *ngFor="let moves of pokemon.selectedMoves" class="move-card">
+        <app-move [move]="moves"></app-move>
+      </div>
     </div>
-  </div>
 
-  <div class="move-adder" [hidden]="numMoves >= 4">
-    <mat-form-field>
-      <mat-label>Add a move</mat-label>
-      <mat-select matNativeControl required [(ngModel)]="selectedMove">
-        <mat-option *ngFor="let move of possibleMoves" [value]="move">{{move.moveName}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="button-container">
-      <button mat-raised-button class="custom-button" (click)="addMove()">Add Move</button>
+    <div class="move-adder" [hidden]="numMoves >= 4">
+      <mat-form-field>
+        <mat-label>Add a move</mat-label>
+        <mat-select matNativeControl required [(ngModel)]="selectedMove">
+          <mat-option *ngFor="let move of possibleMoves" [value]="move">{{move.moveName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button-container">
+        <button mat-raised-button class="custom-button" (click)="addMove()">Add Move</button>
+      </div>
     </div>
   </div>
 </mat-card>

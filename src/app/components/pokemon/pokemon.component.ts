@@ -13,6 +13,7 @@ export class PokemonComponent {
   pokemon!: PokemonBattle;
   possibleMoves!: MoveDetail[];
   selectedMove!: MoveDetail;
+  @Input() opponent!: boolean;
 
   numMoves!: number;
   level: number;

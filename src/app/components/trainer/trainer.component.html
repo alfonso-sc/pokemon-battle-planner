@@ -1,6 +1,6 @@
 <div class="card-container">
   <div *ngFor="let trainedPokemon of trainersPokemon" class="pokemon-card">
-    <app-pokemon [pokemon]="trainedPokemon"></app-pokemon>
+    <app-pokemon [pokemon]="trainedPokemon" [opponent]="opponent"></app-pokemon>
   </div>
 </div>
 <div class="form-field-container" *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="numPokemon >= 6">
