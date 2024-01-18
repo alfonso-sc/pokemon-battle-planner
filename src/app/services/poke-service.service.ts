@@ -17,7 +17,7 @@ export class PokeServiceService {
   getMany() {
     let params: HttpParams = new HttpParams();
     // TODO: Get it working (likely with search bar logic) to not have to load every single pokemon, which would take a long time
-    params = params.append("pageSize", 721);
+    params = params.append("pageSize", 20);
     return this.http.get<PokemonList>(`${environment.apiUrl}/Pokemon`,{params});
   }
 
