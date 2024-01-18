@@ -11,7 +11,7 @@
 
   <div class="move-card-container">
     <div *ngFor="let moves of pokemon.moves" class="move-card">
-      <app-move></app-move>
+      <app-move [move]="moves"></app-move>
     </div>
   </div>
 

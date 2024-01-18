@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MoveDetail } from '../../models/move-detail';
 
 @Component({
   selector: 'app-move',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './move.component.scss'
 })
 export class MoveComponent {
-
+  @Input({required: true})
+  move!: MoveDetail;
 }
