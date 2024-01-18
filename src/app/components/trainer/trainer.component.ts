@@ -42,7 +42,7 @@ export class TrainerComponent {
     const newPokemon = this.pokeService.getByIdentifier(this.selectedPokemon.pokemonName);
     newPokemon.subscribe(
       np => {
-        return this.trainersPokemon.push(np);
+        this.trainersPokemon.push(np);
       }
     )
     console.log(this.selectedPokemon.pokemonName + ` added!`);
