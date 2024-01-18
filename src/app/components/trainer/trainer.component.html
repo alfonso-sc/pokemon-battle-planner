@@ -1,17 +1,19 @@
-<app-pokemon></app-pokemon>
-<div class="form-field-container">
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let trainedPokemon of trainersPokemon">
+    <app-pokemon></app-pokemon>
+  </mat-grid-tile>
+</mat-grid-list>
+<div class="form-field-container" *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="trainersPokemon.length >= 6">
   <div class="label-container">
     <label>Add a Pokemon</label>
   </div>
-  <div *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="trainersPokemon.length >= 6">
-    <mat-form-field>
-      <mat-label>Pokemon</mat-label>
-      <mat-select matNativeControl required [(ngModel)]="selectedPokemon">
-        <mat-option *ngFor="let pokemon of pokemonResponse.data" [value]="pokemon">{{pokemon.pokemonName}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="button-container">
-      <button mat-raised-button class="custom-button" (click)="addPokemon()">Add Pokemon</button>
-    </div>
+  <mat-form-field>
+    <mat-label>Pokemon</mat-label>
+    <mat-select matNativeControl required [(ngModel)]="selectedPokemon">
+      <mat-option *ngFor="let pokemon of pokemonResponse.data" [value]="pokemon">{{pokemon.pokemonName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="button-container">
+    <button mat-raised-button class="custom-button" (click)="addPokemon()">Add Pokemon</button>
   </div>
 </div>
