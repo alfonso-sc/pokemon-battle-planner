@@ -1,0 +1,17 @@
+/* Your existing styles for other elements */
+
+.label-container {
+  margin-bottom: 10px; /* Adjust the margin to create space between the label and the dropdown */
+}
+
+.label-container label {
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color as needed */
+  font-weight: bold; /* Optionally, make the label bold */
+}
+
+.form-field-container {
+  padding: 10px; /* Adjust the padding to control the white space around the form field */
+  border: 2px solid white; /* Add a border of white space around the form field */
+  border-radius: 8px; /* Optionally, add rounded corners */
+}

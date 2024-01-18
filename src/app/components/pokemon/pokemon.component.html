@@ -1,13 +1,16 @@
-<!-- pokemon.component.html -->
-
-<div class="pokemon-container">
-    <div class="pokemon-info">
-      <!-- <h3>{{ pokemon.name }}</h3> -->
-      <h3>bulbasaur</h3>
-      <!-- <img [src]="pokemon.imageUrl" alt="{{ pokemon.name }} Image"> -->
-      <img src="https://shella935.blob.core.windows.net/pokemon-sprites-back/1.png" alt="bulbasaur Image">
-
-    </div>
-    <!-- <button mat-icon-button (click)="addMove()">+</button> -->
-  </div>
-  
+<mat-card class="pokemon-card">
+  <mat-card-header>
+    <div
+      mat-card-avatar
+      style="
+        background-image: url('https://shella935.blob.core.windows.net/pokemon-icons/1.png');
+        background-size: cover;
+      "
+    ></div>
+    <mat-card-title>bulbasaur</mat-card-title>
+    <mat-card-subtitle>subtitle place holder</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button>add a move</button>
+  </mat-card-actions>
+</mat-card>
