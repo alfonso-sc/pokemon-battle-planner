@@ -17,5 +17,5 @@ As a team, design and build an SPA that helps the user plan which pokemon to use
 * User data does not need to be persisted. It is okay if a page refresh resets the user's entered data.
 * A Pokemon's move damage should be calculated according to the [Generation I formula](https://bulbapedia.bulbagarden.net/wiki/Damage#Generation_I)
 	* Since this is for estimating rather than simulating, assume no criticals, and the random number to be the average of the random range.
-	* Attack and defense are based on the pokemon's relevant base stats, increasing by 2% for each level above the first.
+	* Attack and defense are calculated based on the pokemon's relevant base stats. They start with a value of 5 at level 1, and increase by 2% of the base stat for each level after.
 	* For simplicity, ignore any per-move exceptions.
