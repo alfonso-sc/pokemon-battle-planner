@@ -19,4 +19,16 @@
   padding: 4px; 
   display: flex; 
   flex-direction: row;
-} 
+}
+
+.strong {
+  background-color: green;
+}
+
+.normal {
+  background-color: yellow;
+}
+
+.weak {
+  background-color: red;
+}
