@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { PokemonDetailed } from '../../models/poke-detail';
+import { PokeServiceService } from '../../services/poke-service.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -6,7 +8,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./pokemon.component.scss']
 })
 export class PokemonComponent {
-  @Input() pokemon: any; // Define the input property for Pokemon data
+  @Input({required: true}) 
+  pokemon!: PokemonDetailed; // Define the input property for Pokemon data
+
+  constructor(
+    private pokeService: PokeServiceService
+  ) {}
 
   addMove() {
     // Implement the logic to add moves
