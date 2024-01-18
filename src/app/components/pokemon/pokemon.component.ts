@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { PokemonDetailed } from '../../models/poke-detail';
 import { PokeMoveService } from '../../services/poke-move.service';
-import { MoveSimple } from '../../models/move-simple';
 import { MoveDetail } from '../../models/move-detail';
 
 @Component({
@@ -13,7 +12,7 @@ export class PokemonComponent {
   @Input({required: true}) 
   pokemon!: PokemonDetailed; // Define the input property for Pokemon data
   possibleMoves!: MoveDetail[];
-  selectedMove!: MoveSimple;
+  selectedMove!: MoveDetail;
 
   numMoves!: number;
   level: number;
