@@ -16,6 +16,7 @@ import { LobbyComponent } from './components/lobby/lobby.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { ResultsComponent } from './components/results/results.component';
 import { TrainerComponent } from './components/trainer/trainer.component';
+import { MoveComponent } from './components/move/move.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TrainerComponent } from './components/trainer/trainer.component';
     LobbyComponent,
     TrainerComponent,
     ResultsComponent,
-    PokemonComponent
+    PokemonComponent,
+    MoveComponent
   ],
   imports: [
     BrowserModule,
