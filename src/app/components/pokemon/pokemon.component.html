@@ -10,7 +10,7 @@
   </mat-card-header>
 
   <div class="move-card-container">
-    <div *ngFor="let moves of pokemon.moves" class="move-card">
+    <div *ngFor="let moves of pokemon.selectedMoves" class="move-card">
       <app-move [move]="moves"></app-move>
     </div>
   </div>

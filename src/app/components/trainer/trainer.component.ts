@@ -3,8 +3,9 @@ import { Observable } from 'rxjs';
 
 import { PokemonList } from '../../models/poke-list';
 import { PokeServiceService } from '../../services/poke-service.service';
-import { PokemonDetailed } from '../../models/poke-detail';
 import { PokemonSimple } from '../../models/poke-simple';
+import { PokemonBattle } from '../../models/poke-battle';
+import { PokemonDetailed } from '../../models/poke-detail';
 
 @Component({
   selector: 'app-trainer',
@@ -13,7 +14,7 @@ import { PokemonSimple } from '../../models/poke-simple';
 })
 export class TrainerComponent {
   pokemonResponse$!: Observable<PokemonList>;
-  trainersPokemon!: PokemonDetailed[];
+  trainersPokemon!: PokemonBattle[];
   selectedPokemon!: PokemonSimple;
   numPokemon: number;
 
@@ -43,9 +44,13 @@ export class TrainerComponent {
     console.log(`Adding ` + this.selectedPokemon.pokemonName);
     this.numPokemon += 1;
     const newPokemon = this.pokeService.getByIdentifier(this.selectedPokemon.pokemonName);
-    newPokemon.subscribe(
-      np => {
-        this.trainersPokemon.push(np);
+    newPokemon.subscribe(np => {
+        const battlePokemon: PokemonBattle = {
+          ...(np as PokemonDetailed), 
+          level: 1, 
+          selectedMoves: [],
+        };
+        this.trainersPokemon.push(battlePokemon);
       }
     )
     console.log(this.selectedPokemon.pokemonName + ` added!`);

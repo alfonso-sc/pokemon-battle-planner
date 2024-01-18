@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { PokemonDetailed } from '../../models/poke-detail';
 import { PokeMoveService } from '../../services/poke-move.service';
 import { MoveDetail } from '../../models/move-detail';
+import { PokemonBattle } from '../../models/poke-battle';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,7 +10,7 @@ import { MoveDetail } from '../../models/move-detail';
 })
 export class PokemonComponent {
   @Input({required: true}) 
-  pokemon!: PokemonDetailed; // Define the input property for Pokemon data
+  pokemon!: PokemonBattle;
   possibleMoves!: MoveDetail[];
   selectedMove!: MoveDetail;
 
@@ -26,7 +26,6 @@ export class PokemonComponent {
 
   ngOnInit() {
     this.possibleMoves = this.pokemon.moves;
-    this.pokemon.moves= [];
   }
 
 
@@ -37,7 +36,7 @@ export class PokemonComponent {
     const newMove = this.moveService.getMoveByIdentifier(String(this.selectedMove.id));
     newMove.subscribe(
       nm => {
-        this.pokemon.moves.push(nm);
+        this.pokemon.selectedMoves.push(nm);
         // TODO: remove moves from the possibleMoves array once they are picked
       }
     )
