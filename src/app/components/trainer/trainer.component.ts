@@ -15,11 +15,13 @@ export class TrainerComponent {
   pokemonResponse$!: Observable<PokemonList>;
   trainersPokemon!: PokemonDetailed[];
   selectedPokemon!: PokemonSimple;
+  numPokemon: number;
 
   constructor(
     private pokeService: PokeServiceService
     ) { 
       this.trainersPokemon = [];
+      this.numPokemon = 0;
     }
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class TrainerComponent {
 
   addPokemon() {
     console.log(`Adding ` + this.selectedPokemon.pokemonName);
+    this.numPokemon += 1;
     const newPokemon = this.pokeService.getByIdentifier(this.selectedPokemon.pokemonName);
     newPokemon.subscribe(
       np => {

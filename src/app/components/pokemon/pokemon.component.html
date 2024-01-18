@@ -1,17 +1,10 @@
 <mat-card class="pokemon-card">
   <mat-card-header>
-    <div
-      mat-card-avatar
-      style="
-        background-image: url('https://shella935.blob.core.windows.net/pokemon-icons/1.png');
-        background-size: cover;
-      "
-    ></div>
-    <mat-card-title>bulbasaur</mat-card-title>
-    <mat-card-subtitle>subtitle place holder</mat-card-subtitle>
+    <img mat-card-avatar src="{{pokemon.images['icons'][0]}}"/>
+    <mat-card-title>{{pokemon.pokemonName | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{pokemon.genus}} Pokemon</mat-card-subtitle>
   </mat-card-header>
 
-  
   <mat-card-actions>
     <button mat-button>add a move</button>
   </mat-card-actions>
