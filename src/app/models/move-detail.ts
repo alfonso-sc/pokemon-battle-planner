@@ -1,6 +1,12 @@
-import { MoveSimple } from "./move-simple";
 import { Type } from "./type";
 
-export interface MoveDetail extends MoveSimple {
+export interface MoveDetail {
+    id: number,
+    moveName: string,
+    power: number,
+    powerPoints: number,
+    accuracy: number,
+    flavorText: string,
+    effect: string
     moveType: Type[];
 }

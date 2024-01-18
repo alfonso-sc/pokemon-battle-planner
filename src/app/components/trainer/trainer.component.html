@@ -1,8 +1,8 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let trainedPokemon of trainersPokemon">
+<div class="card-container">
+  <div *ngFor="let trainedPokemon of trainersPokemon" class="pokemon-card">
     <app-pokemon [pokemon]="trainedPokemon"></app-pokemon>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
 <div class="form-field-container" *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="numPokemon >= 6">
   <div class="label-container">
     <label>Add a Pokemon</label>
