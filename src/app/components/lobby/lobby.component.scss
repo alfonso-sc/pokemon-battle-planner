@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-wrap: wrap; /* Allow flex items to wrap to the next line */
-  height: 100vh; /* Set the container height to 100% of the viewport height */
+  // height: 100vh; /* Set the container height to 100% of the viewport height */
 }
 
 .box {
@@ -37,4 +37,19 @@ h1 {
     display: flex;
     justify-content: center;
   }
+}
+
+/* Your existing styles for other elements */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* Adjust the margin to control the white space around the button */
+}
+
+.custom-button {
+  font-size: 18px; /* Adjust the font size to make the button big */
+  padding: 15px 30px; /* Adjust the padding to make the button big */
+  border: 2px solid white; /* Add a border of white space around the button */
+  border-radius: 8px; /* Optionally, add rounded corners */
 }
