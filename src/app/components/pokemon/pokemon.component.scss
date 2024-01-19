@@ -42,3 +42,12 @@
 .weak {
   background-color: rgb(255, 120, 120);
 }
+
+.type-images-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-images-container img {
+  margin-bottom: 1px;
+}
