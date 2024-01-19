@@ -7,6 +7,7 @@
   <mat-form-field>
     <mat-label>Pokemon</mat-label>
     <mat-select matNativeControl required [(ngModel)]="selectedPokemon">
+      <input [(ngModel)]="name" (change)="updateQuery()"/>
       <mat-option *ngFor="let pokemon of pokemonResponse.data" [value]="pokemon">
         {{pokemon.pokemonName | uppercase}}
         <ng-container *ngFor="let type of pokemon.types">
