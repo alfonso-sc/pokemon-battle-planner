@@ -48,7 +48,7 @@
                         'weak': move.power < 50}" 
             [value]="move"
             [disabled]="alreadySelected(move)">
-            {{move.moveName}} {{ hasMatchingType(move) ? '✅' : '' }}
+            {{fixName(move.moveName)}} {{ hasMatchingType(move) ? '✅' : '' }}
           </mat-option>
         </mat-select>
       </mat-form-field>
