@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PokemonList } from '../../models/poke-list';
@@ -20,7 +20,10 @@ export class TrainerComponent {
   numPokemon: number;
   name?: string;
   
+
   @Input() opponent!: boolean;
+
+  @Output() newTrainersPokemonEvent = new EventEmitter<PokemonBattle[]>();
 
   constructor(
     private pokeService: PokeServiceService,
@@ -65,15 +68,22 @@ export class TrainerComponent {
     this.numPokemon += 1;
     const newPokemon = this.pokeService.getByIdentifier(this.selectedPokemon.pokemonName);
     newPokemon.subscribe(np => {
-        const battlePokemon: PokemonBattle = {
-          ...(np as PokemonDetailed), 
-          level: 1, 
-          selectedMoves: [],
-        };
-        this.trainersPokemon.push(battlePokemon);
-      }
+      const battlePokemon: PokemonBattle = {
+        ...(np as PokemonDetailed),
+        level: 1,
+        selectedMoves: [],
+      };
+      this.trainersPokemon.push(battlePokemon);
+      this.sendPokemonToLobby();
+    }
     )
     console.log(this.selectedPokemon.pokemonName + ` added!`);
   }
+
+  sendPokemonToLobby(): void {
+    this.newTrainersPokemonEvent.emit(this.trainersPokemon);
+    console.log("sending to lobby!")
+  }
+
 }
 
