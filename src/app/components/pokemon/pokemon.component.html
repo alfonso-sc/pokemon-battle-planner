@@ -22,7 +22,9 @@
         <mat-select matNativeControl required [(ngModel)]="selectedMove">
           <mat-option 
           *ngFor="let move of possibleMoves" 
-          [ngClass]="{'strong': move.power >= 100, 'normal': (move.power >= 50 && move.power < 100), 'weak': move.power < 50}" 
+          [ngClass]="{'strong': move.power >= 100, 
+                      'normal': (move.power >= 50 && move.power < 100), 
+                      'weak': move.power < 50}" 
           [value]="move">
           {{move.moveName}}
         </mat-option>
