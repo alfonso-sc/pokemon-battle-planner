@@ -11,6 +11,8 @@ export interface PokemonDetailed {
     height: number,
     baseAttack: number,
     baseDefense: number,
+    baseSpecialAttack: number,
+    baseSpecialDefense: number,
     flavorText: string,
     genus: string,
     evolutionLevel: number,
