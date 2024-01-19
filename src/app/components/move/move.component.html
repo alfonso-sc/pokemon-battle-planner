@@ -1,7 +1,7 @@
 <mat-card class="move-card">
     <mat-card-header>
-      <mat-card-title>{{move.moveName | uppercase}}</mat-card-title>
-      <div [hidden]="!(move.power)"><mat-card-subtitle>Power: {{move.power}}</mat-card-subtitle></div>
-      <div [hidden]="!(move.accuracy)"><mat-card-subtitle>Accuracy: {{move.accuracy}}</mat-card-subtitle></div>
+      <mat-card-title>{{ fixName(move.moveName) }}</mat-card-title>
+      <br><div [hidden]="!(move.power)"><mat-card-subtitle>Power: {{move.power}}</mat-card-subtitle></div>
+      <br><div [hidden]="!(move.accuracy)"><mat-card-subtitle>Accuracy: {{move.accuracy}}</mat-card-subtitle></div>
     </mat-card-header>
 </mat-card>
