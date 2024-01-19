@@ -2,20 +2,29 @@
 <div class="container">
   <div class="box">
     <h2>Your Pokemon</h2>
-    <app-trainer [opponent]="false"></app-trainer>
+    <app-trainer
+      [opponent]="false"
+      (newTrainersPokemonEvent)="receiveDataFromHero($event)"
+      #heroComponent
+    ></app-trainer>
   </div>
 
   <div class="box">
     <h2>Opponent Pokemon</h2>
-    <app-trainer [opponent]="true"></app-trainer>
+    <app-trainer
+      [opponent]="true"
+      (newTrainersPokemonEvent)="receiveDataFromOpponent($event)"
+      #opponentComponent
+    ></app-trainer>
   </div>
 </div>
 
-
-
-
-
 <div class="button-container">
-  <button mat-raised-button class="custom-button">Find Matches</button>
+  <button
+    mat-raised-button
+    class="custom-button"
+    (click)="onClickFindMatches()"
+  >
+    Find Matches
+  </button>
 </div>
-
