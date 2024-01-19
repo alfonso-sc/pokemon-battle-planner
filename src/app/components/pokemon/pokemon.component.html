@@ -3,6 +3,25 @@
     <img mat-card-avatar src="{{pokemon.images['icons'][0]}}"/>
     <mat-card-title>{{pokemon.pokemonName | uppercase}}</mat-card-title>
     <mat-card-subtitle>{{pokemon.genus}} Pokemon</mat-card-subtitle>
+    <ng-container *ngFor="let type of pokemon.types">
+      <span *ngIf="type.typeName === 'Normal'"><img src="https://archives.bulbagarden.net/media/upload/c/c2/NormalIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Fighting'"><img src="https://archives.bulbagarden.net/media/upload/b/bb/FightingIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Flying'"><img src="https://archives.bulbagarden.net/media/upload/8/87/FlyingIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Poison'"><img src="https://archives.bulbagarden.net/media/upload/9/9d/PoisonIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Ground'"><img src="https://archives.bulbagarden.net/media/upload/f/fb/GroundIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Rock'"><img src="https://archives.bulbagarden.net/media/upload/f/fd/RockIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Bug'"><img src="https://archives.bulbagarden.net/media/upload/6/67/BugIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Ghost'"><img src="https://archives.bulbagarden.net/media/upload/b/bf/GhostIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Steel'"><img src="https://archives.bulbagarden.net/media/upload/0/0c/SteelIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Fire'"><img src="https://archives.bulbagarden.net/media/upload/0/03/FireIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Water'"><img src="https://archives.bulbagarden.net/media/upload/c/c3/WaterIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Grass'"><img src="https://archives.bulbagarden.net/media/upload/d/dc/GrassIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Electric'"><img src="https://archives.bulbagarden.net/media/upload/5/57/ElectricIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Psychic'"><img src="https://archives.bulbagarden.net/media/upload/9/94/PsychicIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Ice'"><img src="https://archives.bulbagarden.net/media/upload/1/1b/IceIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Dragon'"><img src="https://archives.bulbagarden.net/media/upload/b/b8/DragonIC_FRLG.png"></span>
+      <span *ngIf="type.typeName === 'Dark'"><img src="https://archives.bulbagarden.net/media/upload/3/3a/DarkIC_FRLG.png"></span>
+    </ng-container>
     <mat-form-field class="level">
       <mat-label>LVL</mat-label>
       <input matInput [(ngModel)]="level">
