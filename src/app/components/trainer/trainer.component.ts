@@ -6,6 +6,7 @@ import { PokeServiceService } from '../../services/poke-service.service';
 import { PokemonSimple } from '../../models/poke-simple';
 import { PokemonBattle } from '../../models/poke-battle';
 import { PokemonDetailed } from '../../models/poke-detail';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-trainer',
@@ -17,18 +18,35 @@ export class TrainerComponent {
   trainersPokemon!: PokemonBattle[];
   selectedPokemon!: PokemonSimple;
   numPokemon: number;
+  name?: string;
   
   @Input() opponent!: boolean;
 
   constructor(
-    private pokeService: PokeServiceService
+    private pokeService: PokeServiceService,
+    private route: ActivatedRoute,
     ) { 
       this.trainersPokemon = [];
       this.numPokemon = 0;
+      this.newGetPokemon();
     }
 
   ngOnInit() {
-    this.getPokemon();
+    this.route.queryParams
+    .subscribe((qp) => {
+      this.name=qp['name'];
+      this.newGetPokemon();
+    });
+  }
+
+  updateQuery() {
+    this.newGetPokemon();
+  }
+
+  newGetPokemon() {
+    console.log("Getting Pokemon...")
+    this.pokemonResponse$ = this.pokeService.getManySearch(this.name)
+    console.log("Pokemon Gotten!")
   }
 
   getPokemon() {
