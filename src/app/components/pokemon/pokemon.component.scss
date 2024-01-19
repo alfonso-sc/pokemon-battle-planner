@@ -1,10 +1,20 @@
 .pokemon-card {
-    max-width: 320px;
+  min-width: 250px;
 } 
 
 .level { 
-  width: 50px; 
-} 
+  width: 100%;
+  padding: 0;
+}
+
+.level input {
+  min-width: 30px;
+  max-width: 50px;
+  text-align: left;
+  font-size: small;
+  padding: 0 0;
+  margin: 0;
+}
 
 .move-card-container { 
   display: flex; 
