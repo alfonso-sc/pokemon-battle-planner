@@ -25,7 +25,8 @@
           [ngClass]="{'strong': move.power >= 100, 
                       'normal': (move.power >= 50 && move.power < 100), 
                       'weak': move.power < 50}" 
-          [value]="move">
+          [value]="move"
+          [disabled]="alreadySelected(move)">
           {{move.moveName}} {{ hasMatchingType(move) ? '✅' : '' }}
         </mat-option>
         </mat-select>
