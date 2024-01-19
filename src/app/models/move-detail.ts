@@ -8,5 +8,5 @@ export interface MoveDetail {
     accuracy: number,
     flavorText: string,
     effect: string
-    moveType: Type[];
+    moveType: Type;
 }

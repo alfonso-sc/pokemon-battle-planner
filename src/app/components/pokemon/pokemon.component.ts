@@ -29,6 +29,12 @@ export class PokemonComponent {
     this.possibleMoves = this.pokemon.moves;
   }
 
+  // This function checks if the move and the pokemon share any type
+  hasMatchingType(move: MoveDetail) {
+    return this.pokemon.types.some(pokemonType =>
+        pokemonType.id === move.moveType.id)
+  }
+
 
   addMove() {
     // Implement the logic to add moves

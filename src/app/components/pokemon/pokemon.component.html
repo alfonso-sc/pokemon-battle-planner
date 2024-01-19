@@ -20,13 +20,13 @@
       <mat-form-field>
         <mat-label>Add a move</mat-label>
         <mat-select matNativeControl required [(ngModel)]="selectedMove">
-          <mat-option 
-          *ngFor="let move of possibleMoves" 
+          <mat-option
+          *ngFor="let move of possibleMoves"
           [ngClass]="{'strong': move.power >= 100, 
                       'normal': (move.power >= 50 && move.power < 100), 
                       'weak': move.power < 50}" 
           [value]="move">
-          {{move.moveName}}
+          {{move.moveName}} {{ hasMatchingType(move) ? '✅' : '' }}
         </mat-option>
         </mat-select>
       </mat-form-field>
