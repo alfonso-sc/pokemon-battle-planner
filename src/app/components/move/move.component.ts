@@ -12,4 +12,8 @@ export class MoveComponent {
   
   constructor() {
   }
+
+  fixName(moveName: string) {
+    return moveName.replace(/-/g, ' ').toUpperCase();
+  }
 }

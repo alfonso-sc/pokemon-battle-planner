@@ -41,6 +41,9 @@ export class PokemonComponent {
         selectedMove.id === move.id)
   }
 
+  fixName(moveName: string) {
+    return moveName.replace(/-/g, ' ').toUpperCase();
+  }
 
   addMove() {
     // Implement the logic to add moves
