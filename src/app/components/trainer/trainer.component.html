@@ -3,7 +3,7 @@
     <app-pokemon [pokemon]="trainedPokemon" [opponent]="opponent"></app-pokemon>
   </div>
 </div>
-<div class="form-field-container" *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="numPokemon >= 6">
+<div class="form-field-container" *ngIf="(pokemonResponse$ | async) as pokemonResponse" [hidden]="numPokemon >= 6 || done">
   <mat-form-field>
     <mat-label>Pokemon</mat-label>
     <mat-select matNativeControl required [(ngModel)]="selectedPokemon">
@@ -35,4 +35,7 @@
   <div class="button-container">
     <button mat-raised-button class="custom-button" (click)="addPokemon()">Add Pokemon</button>
   </div>
+</div>
+<div class="button-container" [hidden]="done">
+  <button mat-raised-button class="custom-button" (click)="sendPokemonToLobby()">Confirm Pokemon?</button>
 </div>

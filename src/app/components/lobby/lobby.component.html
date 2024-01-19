@@ -28,3 +28,7 @@
     Find Matches
   </button>
 </div>
+
+<div [hidden]="!(madeMatch)">
+  <app-results [heroPokemon]="heroBattlePokemon" [oppPokemon]="opponentBattlePokemon"></app-results>
+</div>

@@ -53,7 +53,6 @@ export class PokemonComponent {
     newMove.subscribe(
       nm => {
         this.pokemon.selectedMoves.push(nm);
-        // TODO: remove moves from the possibleMoves array once they are picked
       }
     )
     console.log('Move added!');

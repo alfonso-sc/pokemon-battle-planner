@@ -11,6 +11,8 @@ import { BattleService } from '../../services/battle.service';
 })
 export class LobbyComponent {
 
+  madeMatch: boolean;
+
   @ViewChild('heroComponent') hero: TrainerComponent;
   @ViewChild('opponentComponent') opponent: TrainerComponent;
 
@@ -20,6 +22,7 @@ export class LobbyComponent {
   constructor(private battleService: BattleService) {
     this.hero = {} as TrainerComponent;
     this.opponent = {} as TrainerComponent;
+    this.madeMatch = false;
   }
 
   receiveDataFromHero(battlePokemon: PokemonBattle[]): void {
@@ -30,13 +33,13 @@ export class LobbyComponent {
     this.opponentBattlePokemon = battlePokemon;
   }
 
-  onClickFindMatches(): void {
-    console.log("heroBattlePokemon", this.heroBattlePokemon)
-    console.log("opponentBattlePokemon", this.opponentBattlePokemon)
-  }
-
   matchPokemon(heroBattlePokemon: PokemonBattle, opponentBattlePokemon: PokemonBattle) {
     this.battleService.matchPokemon(heroBattlePokemon, opponentBattlePokemon);
   }
 
+  onClickFindMatches(): void {
+    console.log("heroBattlePokemon", this.heroBattlePokemon)
+    console.log("opponentBattlePokemon", this.opponentBattlePokemon)
+    this.madeMatch = true;
+  }
 }

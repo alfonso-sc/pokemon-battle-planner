@@ -18,6 +18,7 @@ export class TrainerComponent {
   trainersPokemon!: PokemonBattle[];
   selectedPokemon!: PokemonSimple;
   numPokemon: number;
+  done: boolean;
   name?: string;
   
 
@@ -32,6 +33,7 @@ export class TrainerComponent {
       this.trainersPokemon = [];
       this.numPokemon = 0;
       this.newGetPokemon();
+      this.done = false;
     }
 
   ngOnInit() {
@@ -74,13 +76,13 @@ export class TrainerComponent {
         selectedMoves: [],
       };
       this.trainersPokemon.push(battlePokemon);
-      this.sendPokemonToLobby();
     }
     )
     console.log(this.selectedPokemon.pokemonName + ` added!`);
   }
 
   sendPokemonToLobby(): void {
+    this.done = true;
     this.newTrainersPokemonEvent.emit(this.trainersPokemon);
     console.log("sending to lobby!")
   }
