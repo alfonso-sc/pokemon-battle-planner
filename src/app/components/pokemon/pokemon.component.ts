@@ -13,6 +13,7 @@ export class PokemonComponent {
   pokemon!: PokemonBattle;
   possibleMoves!: MoveDetail[];
   selectedMove!: MoveDetail;
+  @Input() opponent!: boolean;
 
   numMoves!: number;
   level: number;
@@ -26,6 +27,18 @@ export class PokemonComponent {
 
   ngOnInit() {
     this.possibleMoves = this.pokemon.moves;
+    this.possibleMoves = this.possibleMoves.slice().sort((a, b) => b.power - a.power);
+  }
+
+  // This function checks if the move and the pokemon share any type
+  hasMatchingType(move: MoveDetail) {
+    return this.pokemon.types.some(pokemonType =>
+        pokemonType.id === move.moveType.id)
+  }
+
+  alreadySelected(move: MoveDetail) {
+    return this.pokemon.selectedMoves.some(selectedMove =>
+        selectedMove.id === move.id)
   }
 
 

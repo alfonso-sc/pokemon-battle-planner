@@ -9,4 +9,7 @@ import { MoveDetail } from '../../models/move-detail';
 export class MoveComponent {
   @Input({required: true})
   move!: MoveDetail;
+  
+  constructor() {
+  }
 }

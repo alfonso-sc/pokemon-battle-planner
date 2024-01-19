@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PokemonList } from '../../models/poke-list';
@@ -17,6 +17,8 @@ export class TrainerComponent {
   trainersPokemon!: PokemonBattle[];
   selectedPokemon!: PokemonSimple;
   numPokemon: number;
+  
+  @Input() opponent!: boolean;
 
   constructor(
     private pokeService: PokeServiceService
