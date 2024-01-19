@@ -93,12 +93,12 @@ export class LobbyComponent {
     return { attack, defense };
   };
 
-  getStab(pokemon: any, move: any): number {
+  getStab(pokemon: PokemonBattle, move: MoveDetail): number {
     const filteredArray = pokemon.types.filter((type: any) => type.id === move.moveType.id);
     return filteredArray.length === 1 ? 1.5 : 1
   }
 
-  getRandom = function (damageNoRandom: any, first = 217, last = 255) {
+  getRandom = function (damageNoRandom: number, first = 217, last = 255) {
     let random = 1;
     if (damageNoRandom === 1) {
       return random;
