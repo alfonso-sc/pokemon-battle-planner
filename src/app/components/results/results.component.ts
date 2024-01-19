@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PokemonBattle } from '../../models/poke-battle';
 
 @Component({
   selector: 'app-results',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './results.component.scss'
 })
 export class ResultsComponent {
-
+  @Input() heroPokemon!: PokemonBattle[];
+  @Input() oppPokemon!: PokemonBattle[];
 }

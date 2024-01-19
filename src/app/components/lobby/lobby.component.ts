@@ -15,6 +15,8 @@ import { TrainerComponent } from '../trainer/trainer.component';
   styleUrl: './lobby.component.scss'
 })
 export class LobbyComponent {
+  madeMatch: boolean;
+
   _PHYSICAL_MOVES: string[] = [
     "Normal",
     "Fighting",
@@ -46,6 +48,7 @@ export class LobbyComponent {
   constructor(private pokemonTypeService: PokeTypeService) {
     this.hero = {} as TrainerComponent;
     this.opponent = {} as TrainerComponent;
+    this.madeMatch = false;
   }
 
   receiveDataFromHero(battlePokemon: PokemonBattle[]): void {
@@ -59,6 +62,7 @@ export class LobbyComponent {
   onClickFindMatches(): void {
     console.log("heroBattlePokemon", this.heroBattlePokemon)
     console.log("opponentBattlePokemon", this.opponentBattlePokemon)
+    this.madeMatch = true;
   }
 
   getAttackUnadjusted(pokemon: PokemonBattle, move: MoveDetail): number {
