@@ -21,14 +21,14 @@
         <mat-label>Add a move</mat-label>
         <mat-select matNativeControl required [(ngModel)]="selectedMove">
           <mat-option
-          *ngFor="let move of possibleMoves"
-          [ngClass]="{'strong': move.power >= 100, 
-                      'normal': (move.power >= 50 && move.power < 100), 
-                      'weak': move.power < 50}" 
-          [value]="move"
-          [disabled]="alreadySelected(move)">
-          {{move.moveName}} {{ hasMatchingType(move) ? '✅' : '' }}
-        </mat-option>
+            *ngFor="let move of possibleMoves"
+            [ngClass]="{'strong': move.power >= 100, 
+                        'normal': (move.power >= 50 && move.power < 100), 
+                        'weak': move.power < 50}" 
+            [value]="move"
+            [disabled]="alreadySelected(move)">
+            {{move.moveName}} {{ hasMatchingType(move) ? '✅' : '' }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
       <div class="button-container">
