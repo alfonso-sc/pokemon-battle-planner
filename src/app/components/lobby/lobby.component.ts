@@ -94,7 +94,7 @@ export class LobbyComponent {
   };
 
   getStab(pokemon: PokemonBattle, move: MoveDetail): number {
-    const filteredArray = pokemon.types.filter((type: any) => type.id === move.moveType.id);
+    const filteredArray = pokemon.types.filter((type: Type) => type.id === move.moveType.id);
     return filteredArray.length === 1 ? 1.5 : 1
   }
 
